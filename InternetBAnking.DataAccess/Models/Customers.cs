@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetBAnking.DataAccess.Models
+namespace InternetBanking.DataAccess.Models
 {
     public class Customers
     {
