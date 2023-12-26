@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetBanking", "InternetBanking\InternetBanking.csproj", "{C2CF10D6-D2A3-45E1-9DD9-7E56FAC39F47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetBAnking.DataAccess", "InternetBAnking.DataAccess\InternetBAnking.DataAccess.csproj", "{D9BF7583-62F2-4031-AFC7-569AC83E18C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetBanking.DataAccess", "InternetBAnking.DataAccess\InternetBanking.DataAccess.csproj", "{D9BF7583-62F2-4031-AFC7-569AC83E18C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetBanking.core", "InternetBanking.core\InternetBanking.core.csproj", "{39AFFDAC-8CA0-4EC5-B6EE-158BC9BB5693}"
 EndProject

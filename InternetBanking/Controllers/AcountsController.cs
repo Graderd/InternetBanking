@@ -4,7 +4,7 @@ namespace InternetBanking.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ProductController : ControllerBase
+    public class AcountsController : ControllerBase
     {
 
     }
