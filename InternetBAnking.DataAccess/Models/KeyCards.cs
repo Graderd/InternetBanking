@@ -11,6 +11,6 @@ namespace InternetBanking.DataAccess.Models
         public int CardId { get; set; }
         public int CustomersId { get; set; }
         public Customers Customers { get; set; }
-        public IEnumerable<Codes> Codes { get; set; }
+        public List<Codes> Codes { get; set; } = new List<Codes>();
     }
 }
