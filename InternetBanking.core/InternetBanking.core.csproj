@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InternetBAnking.DataAccess\InternetBanking.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
