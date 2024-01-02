@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InternetBanking.DataAccess.Models
 {
-    public class Acounts
+    public class Accounts
     {
         public int AccountsId { get; set; }
         public int CustomersId { get; set; }

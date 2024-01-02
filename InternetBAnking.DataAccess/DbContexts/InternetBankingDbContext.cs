@@ -11,7 +11,7 @@ namespace InternetBanking.DataAccess.DbContexts
             
         }
 
-        public DbSet<Acounts> Acounts { get; set; } = null!;
+        public DbSet<Accounts> Accounts { get; set; } = null!;
         public DbSet<Codes> Codes { get; set; } = null!;
         public DbSet<Customers> Customers { get; set; } = null!;
         public DbSet<KeyCards> KeyCards { get; set; } = null!;

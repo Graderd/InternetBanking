@@ -1,6 +1,7 @@
 ﻿using InternetBanking.core.Interfaces;
 using InternetBanking.DataAccess.DbContexts;
 using InternetBanking.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,29 +17,43 @@ namespace InternetBanking.core.Services
             _dbcontext = dbContext;
         }
         private readonly InternetBankingDbContext _dbcontext;
-        public Task<bool> AddCustomersAsync(Customers customer)
+        public async Task<bool> AddCustomersAsync(Customers customer)
         {
-            throw new NotImplementedException();
+            await _dbcontext.Customers.AddAsync(customer);
+            int inserted = await _dbcontext.SaveChangesAsync();
+            return inserted > 0;
         }
 
-        public Task<bool> DeleteCustomersAsync(int id)
+        public async Task<bool> DeleteCustomersAsync(int id)
         {
-            throw new NotImplementedException();
+            Customers customers = await _dbcontext.Customers.Where(c => c.CustomersId == id).FirstOrDefaultAsync();
+            if(customers != null)
+            {
+                _dbcontext.Customers.Remove(customers);
+                int delected = await _dbcontext.SaveChangesAsync();
+                return delected > 0;
+            }
+            else { return false; }
         }
 
-        public Task<List<Customers>> GetCustomersAsync()
+        public async Task<List<Customers>> GetCustomersAsync()
         {
-            throw new NotImplementedException();
+            return await _dbcontext.Customers.ToListAsync();
         }
 
-        public Task<Customers> GetCustomersByIdAsync(int id)
+        public async Task<Customers> GetCustomersByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            Customers customers = await _dbcontext.Customers.Where(c => c.CustomersId == id).FirstOrDefaultAsync();
+            if(customers != null ) return customers;
+
+            throw new Exception("Este usuario no existe");        
         }
 
-        public Task<bool> UpdateCustomersAsync(Customers customers)
+        public async Task<bool> UpdateCustomersAsync(Customers customers)
         {
-            throw new NotImplementedException();
+            _dbcontext.Entry(customers).State = EntityState.Modified;
+            int updated = await _dbcontext.SaveChangesAsync();
+            return updated > 0;
         }
     }
 }
