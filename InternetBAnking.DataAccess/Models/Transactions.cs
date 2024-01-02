@@ -15,8 +15,8 @@ namespace InternetBanking.DataAccess.Models
         public int TransationTypeId { get; set; }
         public string Description { get; set; }
         public DateTime TransationDate { get; set; }
-        public IEnumerable<Acounts> Origins { get; set; }
-        public IEnumerable<Acounts> Destination { get; set; }
+        public IEnumerable<Accounts> Origins { get; set; }
+        public IEnumerable<Accounts> Destination { get; set; }
 
     }
 }

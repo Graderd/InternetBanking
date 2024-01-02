@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InternetBanking.core\InternetBanking.core.csproj" />
+    <ProjectReference Include="..\InternetBAnking.DataAccess\InternetBanking.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -16,7 +16,7 @@ namespace InternetBanking.DataAccess.Models
         public string Company { get; set; } = null!;
         public decimal Salary { get; set; } 
         public string Password { get; set; } = null!;
-        IEnumerable<Acounts>Acounts { get; set; }
+        IEnumerable<Accounts>Acounts { get; set; }
 
     }
 }
