@@ -1,4 +1,4 @@
-﻿using InternetBanking.core.Dtos;
+﻿using InternetBanking.core.Dtos.Accounts;
 using InternetBanking.DataAccess.Models;
 
 
