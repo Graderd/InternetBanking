@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetBanking.core.Dtos
+namespace InternetBanking.core.Dtos.Accounts
 {
     public class AccountsInsertDto
     {
-        public int CustomersId {  get; set; }
-        public decimal Balance {  get; set; }
+        public int CustomersId { get; set; }
+        public decimal Balance { get; set; }
         public DateTime CreationDate { get; set; }
 
     }

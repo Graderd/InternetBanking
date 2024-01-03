@@ -1,4 +1,4 @@
-﻿using InternetBanking.core.Dtos;
+﻿using InternetBanking.core.Dtos.Accounts;
 using InternetBanking.core.Interfaces;
 using InternetBanking.DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -48,8 +48,8 @@ namespace InternetBanking.Controllers
         {
             try
             {
-                bool isadd = await _accountsService.AddAccountsAsync(accounts);
-                if (isadd) return Ok(accounts);
+                bool isAdded = await _accountsService.AddAccountsAsync(accounts);
+                if (isAdded) return Ok(isAdded);
 
                 return BadRequest();
             }

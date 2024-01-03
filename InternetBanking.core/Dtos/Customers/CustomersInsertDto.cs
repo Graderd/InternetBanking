@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetBanking.core.Dtos
+namespace InternetBanking.core.Dtos.Customers
 {
-    public class CustomersInsertDto 
+    public class CustomersInsertDto
     {
         public string Identification { get; set; } = null!;
         public string Email { get; set; } = null!;

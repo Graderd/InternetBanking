@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using InternetBanking.core.Dtos;
+using InternetBanking.core.Dtos.Accounts;
 using InternetBanking.core.Interfaces;
 using InternetBanking.DataAccess.DbContexts;
 using InternetBanking.DataAccess.Models;
