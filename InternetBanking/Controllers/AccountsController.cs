@@ -1,12 +1,12 @@
-﻿using InternetBanking.core.Interfaces;
+﻿using InternetBanking.core.Dtos;
+using InternetBanking.core.Interfaces;
 using InternetBanking.DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternetBanking.Controllers
 {
 
-    [ApiController]
-    [Route("api/[controller]")]
+
     public class AccountsController : Controller 
     {
         private readonly IAccountsService _accountsService;
@@ -29,8 +29,22 @@ namespace InternetBanking.Controllers
             }
         }
 
+        [HttpGet("GetById/{id:int}")]
+        public async Task<ActionResult<Accounts>> GetByIdAsync(int id)
+        {
+            try
+            {
+                Accounts accounts = await _accountsService.GetAccountsByIdAsync(id);
+                return Ok(accounts);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
         [HttpPost]
-        public async Task<ActionResult<bool>> AddAccountsAsync([FromBody] Accounts accounts)
+        public async Task<ActionResult<bool>> AddAccountsAsync([FromBody] AccountsInsertDto accounts)
         {
             try
             {

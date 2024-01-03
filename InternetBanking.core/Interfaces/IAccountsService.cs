@@ -1,4 +1,5 @@
-﻿using InternetBanking.DataAccess.Models;
+﻿using InternetBanking.core.Dtos;
+using InternetBanking.DataAccess.Models;
 
 
 namespace InternetBanking.core.Interfaces
@@ -7,8 +8,7 @@ namespace InternetBanking.core.Interfaces
     {
         Task<List<Accounts>> GetAccountsAsync();
         Task<Accounts> GetAccountsByIdAsync(int id);
-        Task<bool> AddAccountsAsync(Accounts accounts);
-        Task<bool> UpdateAccountsAsync(Accounts accounts);
+        Task<bool> AddAccountsAsync(AccountsInsertDto accounts);
         Task<bool> DeleteAccountsAsync(int id);
     }
 }
