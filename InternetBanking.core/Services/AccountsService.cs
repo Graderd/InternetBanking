@@ -1,4 +1,6 @@
-﻿using InternetBanking.core.Interfaces;
+﻿using AutoMapper;
+using InternetBanking.core.Dtos;
+using InternetBanking.core.Interfaces;
 using InternetBanking.DataAccess.DbContexts;
 using InternetBanking.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
@@ -12,14 +14,18 @@ namespace InternetBanking.core.Services
 {
     public class AccountsService : IAccountsService
     {
-        public AccountsService(InternetBankingDbContext dbContext)
+        private readonly InternetBankingDbContext _dbContext;
+        private readonly IMapper mapper;
+        public AccountsService(InternetBankingDbContext dbContext, IMapper mapper)
         {
             _dbContext =  dbContext;
         }
-        private readonly InternetBankingDbContext _dbContext;
-        public async Task<bool> AddAccountsAsync(Accounts accounts)
+        
+        public async Task<bool> AddAccountsAsync(AccountsInsertDto accounts)
         {
-            await _dbContext.Accounts.AddAsync(accounts);
+            var acountEmntity = mapper.Map<Accounts>(accounts);
+
+            await _dbContext.Accounts.AddAsync(acountEmntity);
             int inserted = await _dbContext.SaveChangesAsync();
             return inserted > 0;
         }
@@ -49,11 +55,5 @@ namespace InternetBanking.core.Services
             throw new Exception("Esta cuenta no existe");
         }
 
-        public async Task<bool> UpdateAccountsAsync(Accounts accounts)
-        {
-            _dbContext.Entry(accounts).State = EntityState.Modified;
-            int updated = await _dbContext.SaveChangesAsync();
-            return updated > 0;
-        }
     }
 }

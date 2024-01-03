@@ -1,4 +1,5 @@
-﻿using InternetBanking.DataAccess.Models;
+﻿using InternetBanking.core.Dtos;
+using InternetBanking.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace InternetBanking.core.Interfaces
     {
         Task<List<Customers>> GetCustomersAsync();
         Task<Customers> GetCustomersByIdAsync(int id);
-        Task<bool> AddCustomersAsync(Customers customer);
+        Task<bool> AddCustomersAsync(CustomersInsertDto customer);
         Task<bool> UpdateCustomersAsync(Customers customers);
         Task<bool> DeleteCustomersAsync(int id);
     }

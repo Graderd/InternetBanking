@@ -1,4 +1,5 @@
 using InternetBanking.core.Interfaces;
+using InternetBanking.core.Profiles;
 using InternetBanking.core.Services;
 using InternetBanking.DataAccess.DbContexts;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,10 @@ builder.Services.AddDbContext<InternetBankingDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddAutoMapper(typeof(AccoutsProfile));
+builder.Services.AddAutoMapper(typeof(CustomerProfile));
 builder.Services.AddTransient<IAccountsService, AccountsService>();
+builder.Services.AddTransient<ICustomersService, CustomersService>();
 
 var app = builder.Build();
 

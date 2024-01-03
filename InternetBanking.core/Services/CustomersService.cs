@@ -1,4 +1,6 @@
-﻿using InternetBanking.core.Interfaces;
+﻿using AutoMapper;
+using InternetBanking.core.Dtos;
+using InternetBanking.core.Interfaces;
 using InternetBanking.DataAccess.DbContexts;
 using InternetBanking.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
@@ -12,14 +14,17 @@ namespace InternetBanking.core.Services
 {
     public class CustomersService : ICustomersService
     {
+        private readonly InternetBankingDbContext _dbcontext;
+        private readonly IMapper mapper;
         public CustomersService(InternetBankingDbContext dbContext) 
         {
             _dbcontext = dbContext;
         }
-        private readonly InternetBankingDbContext _dbcontext;
-        public async Task<bool> AddCustomersAsync(Customers customer)
+        public async Task<bool> AddCustomersAsync(CustomersInsertDto customers)
         {
-            await _dbcontext.Customers.AddAsync(customer);
+            var customerEntity = mapper.Map<Customers>(customers);
+
+            await _dbcontext.Customers.AddAsync(customerEntity);
             int inserted = await _dbcontext.SaveChangesAsync();
             return inserted > 0;
         }
